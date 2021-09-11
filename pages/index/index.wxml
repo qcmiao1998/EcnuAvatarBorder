@@ -1,0 +1,51 @@
+<image id="background" src="/images/tempbackground.svg" mode="aspectFill"/>
+<image class="footer" src="/images/footer.svg" mode="widthFix"/>
+
+<view class="container">
+  <image class="header" src="/images/header.svg" mode="widthFix"/>
+  <view id="imagediv" bindtap="bindchooseimage">
+    <image class="avatarimg" src="/images/upload.svg"/>
+    <image class="avatarimg" id="useravatar" wx:if="{{useravatar}}" src="{{useravatar}}" />
+    <image class="avatarimg" id="activeborder" wx:if="{{useravatar && activeborder}}" src="{{activeborder}}" />
+  </view>
+
+  <view class="borders-outer">
+    <view id="borders">
+      <view class="border" wx:for="{{borders}}" wx:key="url" bindtap="bindSelectBorder" data-index="{{index}}">
+        <image class="borderimg {{item === activeborder ? 'active':''}}" src="{{item}}"/>
+      </view>
+    </view>
+  </view>
+
+  <view id="export-and-share">
+    <view class="button">
+      <button wx:if="{{exportbtnMode===1}}" disabled="{{!useravatar || !activeborder}}" bindtap='bindExport' style="width: 100%;">保存</button>
+      <button wx:if="{{exportbtnMode===2}}" disabled="true" style="width: 100%;">已保存</button>
+      <button wx:if="{{exportbtnMode===3}}" open-type="openSetting" bindtap='openSetting' style="width: 100%;">请授权</button>
+    </view>
+    <view class="button">
+      <button disabled="{{!useravatar || !activeborder}}" open-type="share" style="width: 100%;">分享</button>
+    </view>
+  </view>
+
+</view>
+
+<view class="{{cropperhidden}}">
+  <image-cropper id="image-cropper"
+    limit_move="{{true}}" disable_rotate="{{true}}" 
+    width="{{300}}" height="{{300}}"
+    templateSrc = "{{activeborder}}"
+    bindimageload="bindcropperloadimage"
+  />
+  <view class="cropper-button">
+    <view class="button">
+      <button bindtap="bindCrop" style="width: 100%;">确认</button>
+    </view>
+    <view class="button">
+      <button bindtap="bindCancelCrop" style="width: 100%;">取消</button>
+    </view>
+  </view>
+</view>
+
+<painter palette="{{savetemplate}}" bind:imgOK="bindSaveImageOk"/>
+<painter palette="{{sharetemplate}}" bind:imgOK="bindShareImageOk"/>
