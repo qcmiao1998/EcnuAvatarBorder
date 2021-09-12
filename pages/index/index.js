@@ -16,7 +16,7 @@ Page({
     this.cropper = this.selectComponent("#image-cropper");
 
     let borders = [];
-    for (let i = 1; i <= 19; i++) {
+    for (let i = 1; i <= 23; i++) {
       borders.push(`/images/borders/(${i}).png`);
     }
     this.setData({
