@@ -2,6 +2,5 @@
   "usingComponents": {
     "image-cropper": "/components/image-cropper/image-cropper",
     "painter":"/components/painter/painter"
-  },
-  "disableScroll": false
+  }
 }

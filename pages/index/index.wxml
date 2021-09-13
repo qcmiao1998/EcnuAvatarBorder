@@ -1,8 +1,9 @@
-<image id="background" src="/images/tempbackground.svg" mode="aspectFill"/>
+<image id="background" src="/images/background.svg" mode="aspectFill"/>
+<image class="header" src="/images/header.svg" mode="widthFix"/>
 <image class="footer" src="/images/footer.svg" mode="widthFix"/>
 
 <view class="container">
-  <image class="header" src="/images/header.svg" mode="widthFix"/>
+  <image class="title" src="/images/title.svg" mode="widthFix"/>
   <view id="imagediv" bindtap="bindchooseimage">
     <image class="avatarimg" src="/images/upload.svg"/>
     <image class="avatarimg" id="useravatar" wx:if="{{useravatar}}" src="{{useravatar}}" />
