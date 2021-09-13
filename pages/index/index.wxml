@@ -2,8 +2,8 @@
 <image class="header" src="/images/header.svg" mode="widthFix"/>
 <image class="footer" src="/images/footer.svg" mode="widthFix"/>
 
-<view class="container">
-  <image class="title" src="/images/title.svg" mode="widthFix"/>
+<view id="container">
+  <image class="title" src="/images/title.svg" bindload="onTitleReady" mode="widthFix" style="margin-top: -{{titlemargin}}\%;"/>
   <view id="imagediv" bindtap="bindchooseimage">
     <image class="avatarimg" src="/images/upload.svg"/>
     <image class="avatarimg" id="useravatar" wx:if="{{useravatar}}" src="{{useravatar}}" />
@@ -40,7 +40,7 @@
   />
   <view class="cropper-button">
     <view class="button">
-      <button bindtap="bindCrop" style="width: 100%;">确认</button>
+      <button bindtap="bindCrop" type="primary" style="width: 100%;">确认</button>
     </view>
     <view class="button">
       <button bindtap="bindCancelCrop" style="width: 100%;">取消</button>

@@ -9,6 +9,7 @@ Page({
     exportbtnMode: 1,
     savetemplate: {},
     sharetemplate: {},
+    titlemargin: 0,
   },
   onLoad() {
     app.globalData.INDEX = this;
@@ -26,6 +27,24 @@ Page({
     wx.showShareMenu({
       menus: ['shareAppMessage', 'shareTimeline']
     })
+  },
+  onTitleReady() {
+    wx.createSelectorQuery().select('#container').boundingClientRect(container => {
+      wx.createSelectorQuery().selectViewport().boundingClientRect(view => {
+        // console.info("body:",rect.height," screen:", view.height);
+        if (container.height < container.height) {
+          return;
+        }
+
+        let ratio = (container.height - view.height) / view.width * 100;
+
+        ratio = ratio < 14 ? ratio:14;
+
+        this.setData({
+          titlemargin: ratio
+        });
+      }).exec();
+    }).exec();
   },
   onShareAppMessage(event) {
     if (event.from == "menu") {
