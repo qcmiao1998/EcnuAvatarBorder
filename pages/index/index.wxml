@@ -11,7 +11,7 @@
   </view>
 
   <view class="borders-outer">
-    <view id="borders">
+    <view id="borders" class="{{platform}}">
       <view class="border" wx:for="{{borders}}" wx:key="url" bindtap="bindSelectBorder" data-index="{{index}}">
         <image class="borderimg {{item === activeborder ? 'active':''}}" src="{{item}}"/>
       </view>
@@ -31,13 +31,13 @@
 
 </view>
 
-<view class="{{cropperhidden}}">
+<view wx:if="{{copperload}}" class="{{cropperhidden}}">
   <image-cropper id="image-cropper"
     limit_move="{{true}}" disable_rotate="{{true}}" 
     width="{{300}}" height="{{300}}"
     disable_ratio="{{true}}"
     templateSrc = "{{activeborder}}"
-    bindimageload="bindcropperloadimage"
+    bindload="bindcropperload" bindimageload="bindcropperloadimage"
   />
   <view class="cropper-button">
     <view class="button">

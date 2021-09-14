@@ -2,6 +2,8 @@ const app = getApp()
 
 Page({
   data: {
+    platform: "",
+    copperload: false,
     cropperhidden: "hidden",
     useravatar: "",
     borders: [],
@@ -14,8 +16,6 @@ Page({
   onLoad() {
     app.globalData.INDEX = this;
 
-    this.cropper = this.selectComponent("#image-cropper");
-
     let borders = [];
     for (let i = 1; i <= 23; i++) {
       borders.push(`/images/borders/(${i}).png`);
@@ -24,11 +24,22 @@ Page({
       borders
     });
 
+    let that = this;
+    wx.getSystemInfo({
+      success (res) {
+        that.setData({
+          platform: res.platform
+        });
+      }
+    });
+
     wx.showShareMenu({
       menus: ['shareAppMessage', 'shareTimeline']
     })
   },
   onTitleReady() {
+    if (this.data.platform === "windows") return;
+    
     wx.createSelectorQuery().select('#container').boundingClientRect(container => {
       wx.createSelectorQuery().selectViewport().boundingClientRect(view => {
         // console.info("body:",rect.height," screen:", view.height);
@@ -118,6 +129,17 @@ Page({
     };
   },
   bindchooseimage() {
+    if (this.data.copperload) {
+      this.setData({
+        copperload: false
+      });
+    }
+    this.setData({
+      copperload: true
+    });
+  },
+  bindcropperload() {
+    this.cropper = this.selectComponent("#image-cropper");
     this.cropper.upload();
   },
   bindcropperloadimage() {
@@ -133,6 +155,7 @@ Page({
     this.cropper.getImg(res => {
       this.setData({
         cropperhidden: "hidden",
+        copperload: false,
         useravatar: res.url
       });
       wx.hideLoading();
@@ -140,7 +163,8 @@ Page({
   },
   bindCancelCrop(){
     this.setData({
-      cropperhidden: "hidden"
+      cropperhidden: "hidden",
+      copperload: false
     });
   },
   bindSelectBorder(event) {
