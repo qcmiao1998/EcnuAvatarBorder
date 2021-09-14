@@ -77,7 +77,7 @@ Page({
           "css": {
             "width": "300px",
             "height": "300px",
-            "top": "60px",
+            "top": "70px",
             "left": "125px",
           }
         },
@@ -87,7 +87,7 @@ Page({
           "css": {
             "width": "300px",
             "height": "300px",
-            "top": "60px",
+            "top": "70px",
             "left": "125px",
           }
         }
