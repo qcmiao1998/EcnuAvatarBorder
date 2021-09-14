@@ -38,8 +38,8 @@ Page({
     })
   },
   onTitleReady() {
-    if (this.data.platform === "windows") return;
-    
+    if (this.data.platform === "windows" || this.data.platform === "mac") return;
+
     wx.createSelectorQuery().select('#container').boundingClientRect(container => {
       wx.createSelectorQuery().selectViewport().boundingClientRect(view => {
         // console.info("body:",rect.height," screen:", view.height);
