@@ -35,6 +35,7 @@
   <image-cropper id="image-cropper"
     limit_move="{{true}}" disable_rotate="{{true}}" 
     width="{{300}}" height="{{300}}"
+    disable_ratio="{{true}}"
     templateSrc = "{{activeborder}}"
     bindimageload="bindcropperloadimage"
   />
