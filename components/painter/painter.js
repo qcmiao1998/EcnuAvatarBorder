@@ -646,7 +646,7 @@ Component({
       }
       this.setData(
         {
-          photoStyle: `width:${this.canvasWidthInPx}px;height:${this.canvasHeightInPx}px;`,
+          photoStyle: `width:${this.canvasWidthInPx * this.properties.pixelRatio}px;height:${this.canvasHeightInPx * this.properties.pixelRatio}px;`,
         },
         function () {
           this.downloadImages(this.properties.palette).then(async palette => {

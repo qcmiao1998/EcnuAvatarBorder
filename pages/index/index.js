@@ -34,7 +34,7 @@ Page({
       platform: res.platform,
       pixelRatio: this.isPc? res.pixelRatio:1
     });
-    
+
     console.info(res);
 
     wx.showShareMenu({
@@ -84,6 +84,7 @@ Page({
           "css": {
             "width": "550px",
             "height": "440px",
+            "mode": "scaleToFill"
           }
         },
         {
@@ -94,6 +95,7 @@ Page({
             "height": "300px",
             "top": "70px",
             "left": "125px",
+            "mode": "scaleToFill"
           }
         },
         {
@@ -104,6 +106,7 @@ Page({
             "height": "300px",
             "top": "70px",
             "left": "125px",
+            "mode": "scaleToFill"
           }
         }
       ]
@@ -203,6 +206,7 @@ Page({
           "css": {
             "width": "300px",
             "height": "300px",
+            "mode": "scaleToFill"
           }
         },
         {
@@ -211,6 +215,7 @@ Page({
           "css": {
             "width": "300px",
             "height": "300px",
+            "mode": "scaleToFill"
           }
         }
       ]
@@ -220,6 +225,7 @@ Page({
     });
   },
   bindSaveImageOk(event) {
+    console.info(event.detail.path)
     wx.saveImageToPhotosAlbum({
       filePath: event.detail.path,
       success() {
