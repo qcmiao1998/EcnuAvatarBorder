@@ -195,6 +195,9 @@ Page({
     });
   },
   bindExport() {
+    wx.showLoading({
+      title: '生成中...'
+    });
     const template = {
       "width": "300px",
       "height": "300px",
@@ -225,6 +228,7 @@ Page({
     });
   },
   bindSaveImageOk(event) {
+    wx.hideLoading();
     let path = event.detail.path;
     console.info(path)
     if (!path.endsWith(".png")) {
