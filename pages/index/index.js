@@ -227,7 +227,7 @@ Page({
   bindSaveImageOk(event) {
     let path = event.detail.path;
     console.info(path)
-    if (path.endsWith(".png")) {
+    if (!path.endsWith(".png")) {
       wx.getFileSystemManager().copyFileSync(
         path,
         path = `${wx.env.USER_DATA_PATH}/ecnu70avatar.png`
