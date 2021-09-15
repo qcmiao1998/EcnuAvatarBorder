@@ -225,9 +225,16 @@ Page({
     });
   },
   bindSaveImageOk(event) {
-    console.info(event.detail.path)
+    let path = event.detail.path;
+    console.info(path)
+    if (path.endsWith(".png")) {
+      wx.getFileSystemManager().copyFileSync(
+        path,
+        path = `${wx.env.USER_DATA_PATH}/ecnu70avatar.png`
+      );
+    }
     wx.saveImageToPhotosAlbum({
-      filePath: event.detail.path,
+      filePath: path,
       success() {
         console.log("Saved");
         app.globalData.INDEX.setData({
