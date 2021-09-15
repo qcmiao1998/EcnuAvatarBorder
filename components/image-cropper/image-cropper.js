@@ -123,6 +123,10 @@ Component({
             type: Number,
             value: 1
         },
+        'pixelRatio': {
+            type: Number,
+            value: 1,
+        },
         /**
          * 图片旋转角度
          */
@@ -309,8 +313,8 @@ Component({
             getImg(getCallback) {
                 this._draw(() => {
                     wx.canvasToTempFilePath({
-                        width: this.data.width * this.data.export_scale,
-                        height: Math.round(this.data.height * this.data.export_scale),
+                        width: this.data.width * this.data.export_scale * this.data.pixelRatio,
+                        height: Math.round(this.data.height * this.data.export_scale * this.data.pixelRatio),
                         destWidth: this.data.width * this.data.export_scale,
                         destHeight: Math.round(this.data.height) * this.data.export_scale,
                         fileType: 'png',
@@ -846,8 +850,8 @@ Component({
                     if ((x >= this.data.cut_left && x <= (this.data.cut_left + this.data.width)) && (y >= this.data.cut_top && y <= (this.data.cut_top + this.data.height))) {
                         //生成图片并回调
                         wx.canvasToTempFilePath({
-                            width: this.data.width * this.data.export_scale,
-                            height: Math.round(this.data.height * this.data.export_scale),
+                            width: this.data.width * this.data.export_scale * this.data.pixelRatio,
+                            height: Math.round(this.data.height * this.data.export_scale * this.data.pixelRatio),
                             destWidth: this.data.width * this.data.export_scale,
                             destHeight: Math.round(this.data.height) * this.data.export_scale,
                             fileType: 'png',

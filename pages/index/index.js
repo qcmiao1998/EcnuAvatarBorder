@@ -12,6 +12,7 @@ Page({
     savetemplate: {},
     sharetemplate: {},
     titlemargin: 0,
+    pixelRatio: 1,
   },
   onLoad() {
     app.globalData.INDEX = this;
@@ -24,21 +25,24 @@ Page({
       borders
     });
 
-    let that = this;
-    wx.getSystemInfo({
-      success (res) {
-        that.setData({
-          platform: res.platform
-        });
-      }
+    const res = wx.getSystemInfoSync();
+    this.setData({
+      platform: res.platform
     });
+    this.isPc = res.platform === "windows" || res.platform === "mac";
+    this.setData({
+      platform: res.platform,
+      pixelRatio: this.isPc? res.pixelRatio:1
+    });
+    
+    console.info(res);
 
     wx.showShareMenu({
       menus: ['shareAppMessage', 'shareTimeline']
     })
   },
   onTitleReady() {
-    if (this.data.platform === "windows" || this.data.platform === "mac") return;
+    if (this.isPc) return;
 
     wx.createSelectorQuery().select('#container').boundingClientRect(container => {
       wx.createSelectorQuery().selectViewport().boundingClientRect(view => {

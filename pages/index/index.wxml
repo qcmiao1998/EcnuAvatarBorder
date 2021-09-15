@@ -34,7 +34,7 @@
 <view wx:if="{{copperload}}" class="{{cropperhidden}}">
   <image-cropper id="image-cropper"
     limit_move="{{true}}" disable_rotate="{{true}}" 
-    width="{{300}}" height="{{300}}"
+    width="{{300}}" height="{{300}}" pixelRatio="{{pixelRatio}}"
     disable_ratio="{{true}}"
     templateSrc = "{{activeborder}}"
     bindload="bindcropperload" bindimageload="bindcropperloadimage"
@@ -49,5 +49,5 @@
   </view>
 </view>
 
-<painter palette="{{savetemplate}}" bind:imgOK="bindSaveImageOk"/>
-<painter palette="{{sharetemplate}}" bind:imgOK="bindShareImageOk"/>
+<painter palette="{{savetemplate}}" pixelRatio="{{pixelRatio}}" bind:imgOK="bindSaveImageOk"/>
+<painter palette="{{sharetemplate}}" pixelRatio="{{pixelRatio}}" bind:imgOK="bindShareImageOk"/>

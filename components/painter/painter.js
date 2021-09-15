@@ -58,6 +58,10 @@ Component({
       type: Number,
       value: 1,
     },
+    pixelRatio: {
+      type: Number,
+      value: 1,
+    },
     widthPixels: {
       type: Number,
       value: 0,
@@ -739,6 +743,8 @@ Component({
           {
             canvasId: 'photo',
             canvas: that.properties.use2D ? that.canvasNode : null,
+            width: that.canvasWidthInPx * that.properties.pixelRatio,
+            height: that.canvasHeightInPx * that.properties.pixelRatio,
             destWidth: that.canvasWidthInPx,
             destHeight: that.canvasHeightInPx,
             success: function (res) {
