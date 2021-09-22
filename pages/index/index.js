@@ -18,7 +18,7 @@ Page({
     app.globalData.INDEX = this;
 
     let borders = [];
-    for (let i = 1; i <= 23; i++) {
+    for (let i = 1; i <= 20; i++) {
       borders.push(`/images/borders/(${i}).png`);
     }
     this.setData({
