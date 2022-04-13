@@ -1,9 +1,9 @@
-<image id="background" src="/images/background.svg" mode="aspectFill"/>
-<image class="header" src="/images/header.svg" mode="widthFix"/>
-<image class="footer" src="/images/footer.svg" mode="widthFix"/>
+<image id="background" src="/images/background.png" mode="aspectFill"/>
+<!-- <image class="header" src="/images/header.svg" mode="widthFix"/> -->
+<image class="footer" src="/images/footer.png" mode="widthFix"/>
 
 <view id="container">
-  <image class="title" src="/images/title.svg" bindload="onTitleReady" mode="widthFix" style="margin-top: -{{titlemargin}}\%;"/>
+  <image class="title" src="/images/title.png" bindload="onTitleReady" mode="widthFix" style="margin-top: -{{titlemargin}}\%;"/>
   <view id="imagediv" bindtap="bindchooseimage">
     <image class="avatarimg" src="/images/upload.svg"/>
     <image class="avatarimg" id="useravatar" wx:if="{{useravatar}}" src="{{useravatar}}" />

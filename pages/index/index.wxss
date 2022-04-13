@@ -110,7 +110,7 @@
 .border image.active {
   width: 95%;
   height: 95%;
-  box-shadow:0 0 5px #9d2235;
+  box-shadow:0 0 5px #003f98;
 }
 
 #export-and-share {
@@ -128,14 +128,14 @@
 
 button {
   background-color: #ffffffdd !important;
-  color: #9d2235 !important;
+  color: #003f98 !important;
 }
 
 button[disabled] {
-  color: #9d223555 !important;
+  color: #003f9855 !important;
 }
 
 button[type=primary] {
-  background-color: #9d2235dd !important;
+  background-color: #003f98dd !important;
   color: #fff !important;
 }
