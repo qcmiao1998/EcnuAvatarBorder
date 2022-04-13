@@ -64,7 +64,7 @@ Page({
   onShareAppMessage(event) {
     if (event.from == "menu") {
       return {
-        "title": "点击换华东师大校庆70周年专属头像",
+        "title": "点击换中国科大专属头像",
         "imageUrl": "/images/shareimg.png",
       };
     }
@@ -117,7 +117,7 @@ Page({
     });
 
     return {
-      "title": "点击换华东师大校庆70周年专属头像",
+      "title": "点击换中国科大专属头像",
       "imageUrl": "/images/shareimg.png",
       promise
     };
@@ -125,14 +125,14 @@ Page({
   bindShareImageOk(event) {
     if (this.sharePromise) {
       this.sharePromise({
-        "title": "点击换华东师大校庆70周年专属头像",
+        "title": "点击换中国科大专属头像",
         "imageUrl": event.detail.path
       });
     }
   },
   onShareTimeline() {
     return {
-      "title": "点击换华东师大校庆70周年专属头像",
+      "title": "点击换中国科大专属头像",
     };
   },
   bindchooseimage() {
